@@ -1,0 +1,38 @@
+# VRIFY Help
+
+> What do you need help with?
+
+## English
+
+### Account & Access
+
+- [Add, Update, or Remove User Permissions in VRIFY](https://help.vrify.com/en/articles/12455609-add-update-or-remove-user-permissions-in-vrify.md): Control who has access to specific features in VRIFY by setting user-level permissions.
+- [Understanding User Permissions in VRIFY](https://help.vrify.com/en/articles/14307460-understanding-user-permissions-in-vrify.md): Learn how user permissions work in VRIFY and how access is controlled across product areas.
+- [Switch Companies in Your VRIFY Account](https://help.vrify.com/en/articles/12120448-switch-companies-in-your-vrify-account.md): Learn how to switch between companies on the web and in the app.
+- [Change Your VRIFY Password on the Web](https://help.vrify.com/en/articles/12316516-change-your-vrify-password-on-the-web.md): Learn how to update your password if you know your current password, or if you have forgotten your password.
+- [Data Security at VRIFY](https://help.vrify.com/en/articles/11025335-data-security-at-vrify.md): Learn how VRIFY protects the integrity of your data with SOC 2 Type II compliance.
+- [Set Up and Use Multi-Factor Authentication](https://help.vrify.com/en/articles/16101816-set-up-and-use-multi-factor-authentication.md): Learn how multi-factor authentication \(MFA\) works in VRIFY, including how to complete the email verification flow and how admins can enable or disable MFA for their organisation.
+
+## Français
+
+### z ARCHIVED - DO NOT PUBLISH
+
+- [Comment obtenir de l'aide avec DORA](https://help.vrify.com/fr/articles/9787874-comment-obtenir-de-l-aide-avec-dora.md): Conseils sur qui contacter chez VRIFY pour toute assistance liée au contenu IA.
+- [DORA : Phases d'intégration et étapes clés](https://help.vrify.com/fr/articles/9787803-dora-phases-d-integration-et-etapes-cles.md): Ce guide vous guidera à travers les étapes clés de votre parcours avec DORA.
+- [Qu'est-ce qu'une courbe ROC](https://help.vrify.com/fr/articles/9787834-qu-est-ce-qu-une-courbe-roc.md): Comprenez ce que révèle une courbe ROC sur la précision des prédictions.
+
+## Português
+
+### z ARCHIVED - DO NOT PUBLISH
+
+- [Como obter ajuda com DORA](https://help.vrify.com/pt/articles/9787874-como-obter-ajuda-com-dora.md): Orientação sobre quem contatar na VRIFY para obter assistência sobre conteúdo de IA.
+- [DORA: Marcos e etapas principais de integração](https://help.vrify.com/pt/articles/9787803-dora-marcos-e-etapas-principais-de-integracao.md): Este guia irá orientá-lo nas principais etapas de sua jornada de trabalho com DORA.
+- [O que é uma curva ROC](https://help.vrify.com/pt/articles/9787834-o-que-e-uma-curva-roc.md): Entenda as curvas ROC e o que elas revelam sobre a precisão da previsão.
+
+## Español
+
+### z ARCHIVED - DO NOT PUBLISH
+
+- [¿Cómo obtener ayuda con DORA?](https://help.vrify.com/es/articles/9787874-como-obtener-ayuda-con-dora.md): Orientación sobre a quién contactar en VRIFY para obtener ayuda con contenido de IA.
+- [DORA: Hitos de incorporación y pasos clave](https://help.vrify.com/es/articles/9787803-dora-hitos-de-incorporacion-y-pasos-clave.md): Esta guía lo guiará a través de los hitos clave en su viaje trabajando con DORA.
+- [¿Qué es una curva ROC?](https://help.vrify.com/es/articles/9787834-que-es-una-curva-roc.md): Comprenda las curvas ROC y lo que revelan sobre la precisión de las predicciones.

@@ -1,0 +1,102 @@
+generated: '2026-08-05'
+method: searched
+source: https://help.vrify.com/en/articles/6617311-embed-a-3d-presentation-on-a-company-website
+docs:
+- https://help.vrify.com/en/articles/6617311-embed-a-3d-presentation-on-a-company-website
+- https://help.vrify.com/en/articles/6217237-guidelines-for-embedded-content
+- https://help.vrify.com/en/articles/11887161-embed-a-video-recording-on-a-company-website
+- https://help.vrify.com/en/articles/6773671-swap-the-vrify-3d-presentation-embedded-on-a-company-website
+- https://help.vrify.com/en/articles/12092221-swap-the-video-recording-embed-on-a-company-website
+- https://help.vrify.com/en/articles/14847789-what-causes-an-embed-to-stop-animating
+- https://help.vrify.com/en/articles/9062812-upload-an-edited-video-to-use-in-an-embed
+
+summary: >-
+  VRIFY ships no SDK and no component library, but it does ship one genuine
+  third-party-embeddable surface: VRIFY Embeds. A VRIFY Present customer
+  generates an iFrame snippet inside the app and hands it to their web team, who
+  drop it into their own company website — typically the homepage or a press
+  release. The rendered iFrame is a hosted, prebuilt VRIFY surface: an animated
+  looping preview of selected 3D/360 slides that expands into the full
+  interactive 3D Presentation. This is a copy-paste hosted embed, not a
+  developer-programmable component — there is no published loader script, no
+  documented URL or query-parameter contract, no JS API, and no event callbacks.
+
+families:
+- name: VRIFY Embeds
+  kind: hosted-iframe
+  status: generally-available
+  surfaces:
+  - id: 3d-presentation-embed
+    name: 3D Presentation Embed
+    description: >-
+      An animated looping preview built from a chosen range of 3D and/or 360°
+      slides in a VRIFY 3D Presentation, embedded on the customer's own website.
+    delivery: iFrame snippet generated in-app
+    requirements:
+    - The source 3D Presentation must contain at least one 3D or 360 slide, or the
+      embed cannot be created.
+    - >-
+      General Access on the source presentation must be set to "Anyone with the
+      Link" for the embed to render for site visitors.
+    - Creating an embed requires the appropriate user permission; a warning banner
+      appears when the user lacks it.
+    options:
+    - Embed Location label (customer-side tracking of where each embed is used)
+    - starting and ending slide of the animation range
+    - preview before publishing
+    sizing_guidance:
+      minimum_height_px: 600
+      minimum_width_px: 1067
+      aspect_ratio: '16:9'
+      placement: >-
+        VRIFY recommends the customer homepage, where the embed captures the most
+        attention.
+    failure_mode: >-
+      Deleting a slide the embed references permanently breaks the animation —
+      "Once this occurs, it cannot be undone." The slides must be recreated and a
+      new embed generated.
+  - id: recording-embed
+    name: Video Recording Embed
+    description: >-
+      An embed of a recorded 3D Presentation, for company websites, press releases,
+      social posts and blogs.
+    delivery: iFrame snippet generated in-app ("Create New Recording Embed")
+    options:
+    - Embed Location label
+    - choice of recording
+    - preview before creating
+  management:
+    console: https://vrify.com/admin/embeds
+    capability: >-
+      The Embed Management Tool swaps which 3D Presentation a live embed displays
+      without changing the code already deployed on the customer's site — the
+      embed code is a stable handle, the content behind it is repointable in-app.
+    audit_use: >-
+      The embeds list at /admin/embeds is the documented way to check whether a
+      slide is referenced by an active embed before deleting it.
+
+not_present:
+- No JavaScript/web-component library, npm package, or CDN loader is published.
+- No documented embed URL pattern, query parameters, or postMessage/event API.
+- No React/Vue/Angular component wrappers.
+- No customer-facing theming or styling API beyond size and placement guidance.
+
+related:
+- >-
+  help.vrify.com step-by-step walkthroughs are themselves embedded from
+  app.supademo.com (a third-party interactive-demo platform), and product
+  training is hosted on academy.vrify.com (Thinkific) and guides.vrify.com
+  (Supademo). These are vendor surfaces, not VRIFY components.
+
+x-evidence:
+- url: https://help.vrify.com/en/articles/6217237-guidelines-for-embedded-content.md
+  http_status: 200
+  fetched: '2026-08-05'
+  note: Source of the iFrame framing and the 600px x 1067px / 16:9 sizing guidance.
+- url: https://help.vrify.com/en/articles/6617311-embed-a-3d-presentation-on-a-company-website.md
+  http_status: 200
+  fetched: '2026-08-05'
+- url: https://help.vrify.com/en/articles/14847789-what-causes-an-embed-to-stop-animating.md
+  http_status: 200
+  fetched: '2026-08-05'
+  note: Source of the /admin/embeds management URL and the irreversible-break behaviour.

@@ -1,0 +1,148 @@
+generated: '2026-08-05'
+method: searched
+source: https://help.vrify.com/en/collections/12188621-release-notes
+docs: https://help.vrify.com/en/collections/12188621-release-notes
+
+changelog:
+  name: VRIFY Release Notes
+  hosted_on: help.vrify.com (Intercom help centre, "Release Notes" collection)
+  scheme: dated-per-product
+  note: >-
+    VRIFY does not version an API — it versions products. Release notes are
+    published per product line as dated help-centre articles, in four streams:
+    DORA / VRIFY Predict, VRIFY Present, VRIFY (platform-wide), and the iOS app.
+    The iOS stream is the only one that carries semantic version numbers
+    (e.g. 4.7.0); the rest are identified only by date. There is no RSS or JSON
+    feed, no per-entry anchor scheme, and no machine-readable changelog.
+  entry_count_en: 31
+  earliest_entry: '2024-10-30'
+  latest_entry: '2026-08-04'
+  feed: null
+  machine_readable: false
+
+streams:
+- name: DORA / VRIFY Predict
+  current_generation: DORA 2.0
+  generation_released: '2026-03-23'
+  note: >-
+    DORA 2.0 shipped 2026-03-23; DORA 1.0 experiments remain readable but new
+    work happens in 2.0 (see "Working with DORA 1.0 Experiments After the DORA
+    2.0 Release").
+  migration_guide: https://help.vrify.com/en/articles/14062094-working-with-dora-1-0-experiments-after-the-dora-2-0-release
+- name: VRIFY Present
+  note: A beta track runs alongside the GA product ("Getting Started with VRIFY Present Beta").
+- name: VRIFY (platform)
+  note: Cross-product releases — files, folders, permissions, settings.
+- name: iOS app
+  versioning: semver
+  latest_seen: 4.7.0
+  store: https://apps.apple.com/us/app/vrify/id1235301790
+
+entries:
+- date: '2026-08-04'
+  stream: DORA
+  title: DORA Release Notes | Aug 4, 2026
+  url: https://help.vrify.com/en/articles/16007448-dora-release-notes-aug-4-2026
+  additions:
+  - Visualize Uncertainty — a VPS x Uncertainty filter on the Prediction Map.
+  - Prediction Uncertainty layer in the 3D Layers List.
+  breaking: false
+  note: >-
+    Predictions run before this release do not expose the new filter or layer;
+    the prediction must be re-run from Step 4 to enable them.
+- date: '2026-07-29'
+  stream: VRIFY
+  title: VRIFY Release Notes | July 29, 2026
+  url: https://help.vrify.com/en/articles/16101795-vrify-release-notes-july-29-2026
+  changes:
+  - File statuses renamed (Ready for Processing / Processing / Action(s) Required / Accepted).
+  - Data folder and subfolder names renamed across Infrastructure, Drilling, Geology,
+    Surface Geochemistry and Geophysics.
+  breaking: true
+  note: All existing files were reset to a blank status and update as changes are made.
+- date: '2026-07-28'
+  stream: DORA
+  title: DORA Release Notes | July 28, 2026
+  url: https://help.vrify.com/en/articles/16056516-dora-release-notes-july-28-2026
+  additions:
+  - '"Ask Cliff in DORA" — an in-product AI assistant that answers DORA questions
+    from the VRIFY Help Centre.'
+  breaking: false
+- date: '2026-07-22'
+  stream: DORA
+  title: DORA Release Notes | July 22, 2026
+  url: https://help.vrify.com/en/articles/16047367-dora-release-notes-july-22-2026
+  additions:
+  - Browser notifications for DORA.
+  breaking: false
+- date: '2026-06-17'
+  stream: DORA
+  title: DORA Release Notes | June 17, 2026
+  url: https://help.vrify.com/en/articles/15505826-dora-release-notes-june-17-2026
+  changes:
+  - Foundation Models updated to Version 3.
+  - Index page updates.
+  breaking: false
+- date: '2026-06-10'
+  stream: DORA
+  title: DORA Release Notes | June 10, 2026
+  url: https://help.vrify.com/en/articles/15453933-dora-release-notes-june-10-2026
+  additions:
+  - Pin Experiments.
+  - Hide Outside Range on Input Features.
+  breaking: false
+- date: '2026-06-03'
+  stream: DORA
+  title: DORA Release Notes | June 3, 2026
+  url: https://help.vrify.com/en/articles/15372569-dora-release-notes-june-3-2026
+  additions:
+  - Dynamic Topography.
+  - New Create Targets icon.
+  breaking: false
+- date: '2026-05-25'
+  stream: iOS app
+  version: 4.7.0
+  title: iOS App Release Notes (4.7.0) | May 25, 2026
+  url: https://help.vrify.com/en/articles/15234425-ios-app-release-notes-4-7-0-may-25-2026
+  additions:
+  - Custom slide duration for autoplay.
+  - Improved connection messaging.
+  - Improved download organization.
+  breaking: false
+- date: '2026-05-13'
+  stream: DORA
+  title: DORA 2.0 Release Notes | May 13, 2026
+  url: https://help.vrify.com/en/articles/15076825-dora-2-0-release-notes-may-13-2026
+  changes:
+  - Improved loading screens.
+  breaking: false
+- date: '2026-04-22'
+  stream: VRIFY Present
+  title: VRIFY Present Release Notes | Apr 22, 2026
+  url: https://help.vrify.com/en/articles/14728949-vrify-present-release-notes-apr-22-2026
+  additions:
+  - Custom slide duration for autoplay (Web).
+  breaking: false
+- date: '2026-03-23'
+  stream: DORA
+  title: DORA 2.0 Release Notes | Mar 23, 2026
+  url: https://help.vrify.com/en/articles/14143747-dora-2-0-release-notes-mar-23-2026
+  highlights:
+  - Introducing DORA 2.0 — a new generation of the mineral discovery product.
+  - Guidance on what happens to DORA 1.0 experiments.
+  breaking: true
+
+gaps:
+- No RSS/Atom/JSON feed for release notes.
+- No API changelog — VRIFY publishes no public API to version.
+- No deprecation policy or sunset schedule accompanies the DORA 1.0 -> 2.0 transition;
+  only a "what happens to your 1.0 experiments" help article.
+
+x-evidence:
+- url: https://help.vrify.com/en/collections/12188621-release-notes
+  http_status: 200
+  fetched: '2026-08-05'
+- url: https://help.vrify.com/sitemap.xml
+  http_status: 200
+  fetched: '2026-08-05'
+  note: 488 URLs; 31 English release-note articles enumerated from it.

@@ -1,0 +1,14 @@
+{
+  "repo": "vrify",
+  "feeds": [
+    {
+      "source": "https://vrify.com/legal",
+      "feed_url": "https://vrify.com/legal",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-06T14:08:46Z"
+}

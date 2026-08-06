@@ -1,0 +1,105 @@
+generated: '2026-08-05'
+method: searched
+source: https://help.vrify.com/en/articles/16101816-set-up-and-use-multi-factor-authentication
+docs:
+- https://help.vrify.com/en/articles/16101816-set-up-and-use-multi-factor-authentication
+- https://help.vrify.com/en/articles/14307460-understanding-user-permissions-in-vrify
+- https://help.vrify.com/en/articles/12455609-add-update-or-remove-user-permissions-in-vrify
+- https://help.vrify.com/en/articles/12120448-switch-companies-in-your-vrify-account
+- https://help.vrify.com/en/articles/12316516-change-your-vrify-password-on-the-web
+
+summary: >-
+  VRIFY publishes no public API and therefore no API authentication model — no
+  API keys, no OAuth client registration, no token endpoint, no developer
+  credentials of any kind. What it documents is END-USER authentication into the
+  VRIFY web app and iOS app. The one machine-facing scheme observed is the bearer
+  challenge on its own internal backend, which is not offered to third parties.
+
+api_authentication:
+  public_api: false
+  schemes: []
+  observed:
+  - host: services.vrify.com
+    path: /v2/
+    scheme: http-bearer
+    challenge: 'WWW-Authenticate: Bearer realm="api"'
+    body: '{"detail":"Authentication credentials were not provided."}'
+    stack: Django REST Framework behind uvicorn (Wagtail-based "VRIFY Internal Dashboard")
+    documented: false
+    offered_to_third_parties: false
+    note: >-
+      Discovered by probing hosts found in certificate transparency, not from any
+      VRIFY documentation. Its interactive docs endpoint /v2/docs 302s to the
+      Django staff login at /admin/login/. Recorded as observed fact, not as a
+      developer-facing contract.
+
+end_user_authentication:
+  primary:
+    method: username-and-password
+    docs: https://help.vrify.com/en/articles/12316516-change-your-vrify-password-on-the-web
+  mfa:
+    supported: true
+    factor: email one-time code
+    enforced_on:
+    - VRIFY web app
+    - VRIFY iOS app
+    controlled_by: Company Admin (Settings -> Security -> "Require email verification codes")
+    scope: org-wide toggle; when on, all users must enter a one-time code at login
+    rollout: >-
+      Gradual rollout as of the 2026 help-centre article; may not be enabled on
+      every account.
+    docs: https://help.vrify.com/en/articles/16101816-set-up-and-use-multi-factor-authentication
+  sso:
+    supported: true
+    type: social/enterprise identity providers (consumed, not issued)
+    providers:
+    - Google
+    - Microsoft
+    - LinkedIn
+    - Apple
+    mfa_interaction: >-
+      VRIFY's own email-OTP MFA does NOT apply to SSO accounts — identity is
+      verified by the SSO provider.
+    saml: not documented
+    scim: not documented
+    discovery_document: >-
+      None published. /.well-known/openid-configuration returns 404 on vrify.com,
+      admin.vrify.com and services.vrify.com — VRIFY is an OIDC relying party,
+      not a provider.
+  multi_tenancy:
+    supported: true
+    model: >-
+      A user account can belong to more than one company and switches between
+      them in-app on web and iOS.
+    docs: https://help.vrify.com/en/articles/12120448-switch-companies-in-your-vrify-account
+  authorization:
+    model: role + per-feature user permissions
+    admin_role: Company Admin
+    granularity: user-level permissions set per product area
+    docs: https://help.vrify.com/en/articles/14307460-understanding-user-permissions-in-vrify
+    machine_readable_scopes: false
+
+oauth_scopes: null
+oauth_scopes_note: >-
+  Not applicable — no OAuth 2.0 authorization server, no published scopes, and no
+  third-party application registration. scopes/ is deliberately not emitted.
+
+gaps:
+- No API keys, personal access tokens, or service accounts offered to customers.
+- No OAuth/OIDC provider metadata published on any VRIFY host.
+- No documented SAML or SCIM provisioning.
+- Permissions are described in prose only; no machine-readable permission or scope reference.
+
+x-evidence:
+- url: https://help.vrify.com/en/articles/16101816-set-up-and-use-multi-factor-authentication.md
+  http_status: 200
+  fetched: '2026-08-05'
+- url: https://services.vrify.com/v2/
+  http_status: 401
+  fetched: '2026-08-05'
+- url: https://vrify.com/.well-known/openid-configuration
+  http_status: 404
+  fetched: '2026-08-05'
+- url: https://services.vrify.com/v2/docs
+  http_status: 302
+  fetched: '2026-08-05'

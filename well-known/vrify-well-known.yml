@@ -1,0 +1,169 @@
+generated: '2026-08-05'
+method: probed
+source: live probes of every VRIFY host found in apis.yml, DNS and certificate transparency
+
+summary: >-
+  VRIFY publishes NO first-party /.well-known/ resource on any host. Every
+  well-known path on vrify.com, production.vrify.com, develop.vrify.com,
+  dora.vrify.com, status.vrify.com and services.vrify.com returns 404. Two hosts
+  (admin.vrify.com and dynamic.vrify.com) answer 200 text/html for EVERY
+  /.well-known/* path including a nonsense control path — a single-page-app
+  catch-all, not a published resource; those 200s are recorded as false positives
+  and are NOT credited. The only genuine 200 in the set is a security.txt on
+  help.vrify.com, and it is Intercom's boilerplate served by the help-centre
+  platform, naming Intercom's Bugcrowd program — it is not VRIFY's, and is not
+  credited to VRIFY.
+first_party_hits: 0
+pointer_wired: false
+pointer_note: >-
+  No WellKnown or SecurityTxt pointer is wired into apis.yml. Nothing first-party
+  was found, and crediting a vendor's boilerplate or an SPA catch-all would be
+  false credit.
+
+probes:
+- host: vrify.com
+  results:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /robots.txt
+    status: 200
+    body: 'User-agent: * / Disallow: (empty) / Sitemap: https://vrify.com/sitemap.xml'
+  - path: /sitemap.xml
+    status: 200
+    note: 76 URLs, all pointing at webflow.vrify.com canonical hosts.
+- host: services.vrify.com
+  note: The Django/DRF backend behind the app. All well-known paths 404.
+  results:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /robots.txt
+    status: 404
+- host: dora.vrify.com
+  results:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: production.vrify.com
+  note: Webflow staging mirror of the marketing site.
+  results:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: develop.vrify.com
+  note: 'Webflow dev mirror; robots.txt is "Disallow: /".'
+  results:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: status.vrify.com
+  results:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: admin.vrify.com
+  verdict: false-positive
+  note: >-
+    Returns 200 text/html (892 bytes, the vrify-editor SPA shell) for EVERY
+    /.well-known/* path, including /.well-known/zzz-control-path-check-xyz.
+    None of these are published resources.
+  results:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    credited: false
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    credited: false
+  - path: /.well-known/zzz-control-path-check-xyz
+    status: 200
+    content_type: text/html
+    credited: false
+    note: Control path. Proves the catch-all.
+- host: dynamic.vrify.com
+  verdict: false-positive
+  note: Same SPA catch-all shape as admin.vrify.com; control path also 200.
+  results:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    credited: false
+  - path: /.well-known/zzz-control-path-check-xyz
+    status: 200
+    content_type: text/html
+    credited: false
+- host: help.vrify.com
+  note: Intercom-hosted help centre.
+  results:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    credited: false
+    third_party: intercom
+    detail: >-
+      Intercom platform boilerplate — "Contact: https://bugcrowd.com/intercom",
+      "Contact: mailto:security@intercom.com", "Canonical:
+      https://app.intercom.com/.well-known/security.txt". Not VRIFY's disclosure
+      program; VRIFY publishes none.
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain
+    credited: true
+    detail: >-
+      Genuine VRIFY help-centre content (Intercom-generated). Saved verbatim to
+      llms/vrify-llms.txt and wired as type LLMsTxt.
+  - path: /robots.txt
+    status: 200
+  - path: /.well-known/agent-card.json
+    status: 404
+
+recommendations_for_provider:
+- Publish /.well-known/security.txt on vrify.com with a Contact and Policy (RFC 9116).
+  The one that exists today belongs to Intercom, not to VRIFY.
+- Serve a 404 (not the SPA shell) for unknown /.well-known/* paths on admin.vrify.com
+  and dynamic.vrify.com; the catch-all makes automated discovery unreliable against
+  those hosts.

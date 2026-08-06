@@ -1,0 +1,86 @@
+generated: '2026-08-05'
+method: searched
+source: https://status.vrify.com/
+
+status_page:
+  present: true
+  url: https://status.vrify.com/
+  name: VRIFY Status Page
+  provider: UptimeRobot
+  cname: stats.uptimerobot.com
+  features:
+  - 90-day uptime calendar
+  - overall uptime for last 24 hours / 7 days / 30 days / 90 days
+  - status update history
+  - email subscription for updates
+  incident_history_at_check: No status updates in the last 7 days.
+  machine_readable_feed: null
+  note: >-
+    A hosted UptimeRobot public status page. Non-production environments have
+    their own pages (status.staging.vrify.com, status.develop.vrify.com resolve
+    in certificate transparency). No RSS/JSON incident feed and no published SLA.
+
+versioning:
+  api: null
+  api_note: >-
+    VRIFY publishes no public API, so there is no API version policy. The only
+    versioned HTTP surface observed is the internal backend path prefix /v2/ on
+    services.vrify.com (401, WWW-Authenticate: Bearer realm="api"), whose /v2/docs
+    endpoint 302s to a Django staff login.
+  products:
+  - name: DORA / VRIFY Predict
+    scheme: generation
+    current: DORA 2.0
+    released: '2026-03-23'
+    previous: DORA 1.0
+  - name: DORA Foundation Models
+    scheme: integer
+    current: Version 3
+    released: '2026-06-17'
+  - name: iOS app
+    scheme: semver
+    latest_seen: 4.7.0
+    released: '2026-05-25'
+  - name: VRIFY Present
+    scheme: dated
+    note: A separate beta track runs alongside GA.
+
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  note: >-
+    No deprecation or sunset policy is published. The one generation change on
+    record — DORA 1.0 to DORA 2.0 — is documented as a migration help article
+    rather than as a dated deprecation with an end-of-life.
+  migration_guide: https://help.vrify.com/en/articles/14062094-working-with-dora-1-0-experiments-after-the-dora-2-0-release
+
+sla:
+  published: false
+  note: >-
+    No public SLA or uptime commitment. Availability is one of the five SOC 2
+    Type II Trust Services Criteria VRIFY reports as covered (see
+    security/vrify-trust-center.yml), but no numeric target is published.
+
+support:
+  help_centre: https://help.vrify.com/en/
+  email: support@vrify.com
+  in_product: >-
+    "Cliff", an in-DORA AI assistant answering from the help centre (shipped
+    2026-07-28); account- and experiment-specific questions route to a named
+    VRIFY contact.
+
+changelog: changelog/vrify-changelog.yml
+
+x-evidence:
+- url: https://status.vrify.com/
+  http_status: 200
+  fetched: '2026-08-05'
+- url: https://services.vrify.com/v2/
+  http_status: 401
+  fetched: '2026-08-05'
+  note: 'www-authenticate: Bearer realm="api"; server: uvicorn'
+- url: https://services.vrify.com/v2/docs
+  http_status: 302
+  fetched: '2026-08-05'
+  note: Location https://services.vrify.com/admin/login/?next=/v2/docs
