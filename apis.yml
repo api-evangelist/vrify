@@ -24,7 +24,7 @@ x-source: harvest:secondary-market
 x-source-url: https://www.hiive.com/securities/vrify-stock
 x-tier: profiled
 x-tier-reason: enrichment-pass
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-05'
 modified: '2026-08-05'
 x-enrichment:
