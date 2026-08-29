@@ -17,6 +17,17 @@ description: 'VRIFY Technology Inc. is a Vancouver, British Columbia software co
   own backend at services.vrify.com/v2/ (401, WWW-Authenticate: Bearer realm="api",
   with its /v2/docs endpoint 302ing to a Django staff login) and a copy-paste 3D presentation
   embed customers place on their own company websites.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/6787b60d6e8383c2fef24122/67ad320cea9bf38396f831b9_virfy-og-image.png
 url: https://raw.githubusercontent.com/api-evangelist/vrify/refs/heads/main/apis.yml
 x-type: company
