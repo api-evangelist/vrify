@@ -82,7 +82,7 @@ tags:
 - Mineral Exploration
 - Geoscience
 - Artificial Intelligence
-- Machine-Learning
+- Machine Learning
 - 3D Visualization
 - Data Visualization
 - Investor Relations
@@ -100,6 +100,7 @@ tags_raw:
 - Investor Relations
 - SaaS
 - Canada
+- Machine-Learning
 apis: []
 maintainers:
 - FN: Kin Lane
